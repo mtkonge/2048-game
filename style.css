@@ -5,6 +5,7 @@ body {
     background-color:beige;
     align-items: center;
     --square-margin: 10px;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1 {
@@ -23,7 +24,7 @@ h1 {
 
 }
 #game div {
-    font-size: 48px;
+    font-size: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,13 +32,101 @@ h1 {
     width: 150px;
     height: 150px;
     border-radius: 10px;
-
+    font-weight: bold;
 }
 
 .empty-square {
     background-color: rgba(238, 228, 218, 0.35);
 }
 
-.filled-square {
+.filled-square2 {
+    color: #776e65;
     background-color: #eee4da;
 }
+
+.filled-square4 {
+    color: #776e65;
+    background-color: #eee1c9;
+}
+
+.filled-square8 {
+    color: #f9f6f2;
+    background-color: #f3b27a;
+}
+
+.filled-square16 {
+    color: #f9f6f2;
+    background-color: #f69664;
+
+}
+
+.filled-square32 {
+    color: #f9f6f2;
+    background-color: #f77c5f;
+}
+
+.filled-square64 {
+    color: #f9f6f2;
+    background-color: #f75f3b;
+}
+
+.filled-square128 {
+    color: #f9f6f2;
+    background-color: #edd073;
+}
+
+.filled-square256 {
+    color: #f9f6f2;
+    background-color: #edcc62;
+}
+
+.filled-square512 {
+    color: #f9f6f2;
+    background-color: #edc950;
+}
+
+.filled-square1024 {
+    color: #f9f6f2;
+    background-color: #edc82a;
+}
+
+.filled-square2048 {
+    color: #f9f6f2;
+    background-color: #6ddbdd;
+}
+
+.filled-square4096 {
+    color: #f9f6f2;
+    background-color: #5adbdd;
+}
+
+.filled-square8192 {
+    color: #f9f6f2;
+    background-color: #3ccbdd;
+}
+
+.filled-square16384 {
+    color: #f9f6f2;
+    background-color: #24cbdd;
+}
+
+.filled-square32768 {
+    color: #f9f6f2;
+    background-color: #df6dd5;
+}
+
+.filled-square65536 {
+    color: #f9f6f2;
+    background-color: #df5dd5;
+}
+
+.filled-square131072 {
+    color: #f9f6f2;
+    background-color: #dc2dd5;
+}
+
+
+
+
+
+
