@@ -49,7 +49,6 @@ function gravityLeft() {
 
 function gravityRight() {
     resetHasMerged()
-    
     squaresCopy = JSON.parse(JSON.stringify(squares))
     for(let i = 14; i >= 0; i--) {
         squaresCopy = gravity(squaresCopy, i, 1, 0, 3)
@@ -64,14 +63,10 @@ function gameOver() {
 
 function isGameOver() {
     const nextMoves = [gravityDown(), gravityRight(), gravityUp(), gravityLeft()]
-
-    
     for(let i = 0; i < nextMoves.length; i++) {
-        console.log(nextMoves[i], squares)
         if (nextMoves[i].toString() != squares.toString()) {
             break
         }
-        
         if (i == nextMoves.length-1) {
             return true
         }

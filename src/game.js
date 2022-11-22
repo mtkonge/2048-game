@@ -1,4 +1,10 @@
+let squares = []
+const newGameBtn = document.getElementById("reset-game")
 
+function newTurn() {
+    generateSquare()
+    updateSquares()
+}
 
 function resetGame() {
     let i = 0
@@ -11,12 +17,11 @@ function resetGame() {
         }
     }
     newTurn();
-
 }
 
-function newTurn() {
-    generateSquare()
-    updateSquares()
-}
+newGameBtn.addEventListener("click", () => {resetGame()})
+
+
+resetGame()
 
 
