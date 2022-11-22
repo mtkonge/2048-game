@@ -65,11 +65,13 @@ function gameOver() {
 function isGameOver() {
     const nextMoves = [gravityDown(), gravityRight(), gravityUp(), gravityLeft()]
 
+    
     for(let i = 0; i < nextMoves.length; i++) {
+        console.log(nextMoves[i], squares)
         if (nextMoves[i].toString() != squares.toString()) {
             break
         }
-        console.log(i, nextMoves.length-1)
+        
         if (i == nextMoves.length-1) {
             return true
         }
@@ -94,13 +96,9 @@ function checkForEmptySquares() {
     }
 }
 
-function generateSquare(firstTurn = false) {
+function generateSquare() {
     const newSquare = [Math.round(Math.random()*3), Math.round(Math.random()*3), 2]
     let i = 0;
-    console.log(isGameOver())
-    if (isGameOver() && !firstTurn) {
-        gameOver()
-    }
 
     for(let r = 0; r < 4; r++) {
         for(let c = 0; c < 4; c++) {

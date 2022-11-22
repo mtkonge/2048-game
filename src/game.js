@@ -10,12 +10,12 @@ function resetGame() {
             i++
         }
     }
-    newTurn(true);
+    newTurn();
 
 }
 
-function newTurn(firstTurn) {
-    generateSquare(firstTurn)
+function newTurn() {
+    generateSquare()
     updateSquares()
 }
 
