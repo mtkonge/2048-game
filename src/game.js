@@ -1,5 +1,25 @@
+"use strict"
+
 let squares = []
 const newGameBtn = document.getElementById("reset-game")
+
+
+function gameOver() {
+    throw new Error("Game end")
+}
+
+function isGameOver() {
+    const nextMoves = [gravityDown(), gravityRight(), gravityUp(), gravityLeft()]
+    for(let i = 0; i < nextMoves.length; i++) {
+        if (nextMoves[i].toString() != squares.toString()) {
+            break
+        }
+        if (i == nextMoves.length-1) {
+            return true
+        }
+    }
+    return false
+}
 
 function newTurn() {
     generateSquare()

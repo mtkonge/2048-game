@@ -1,5 +1,6 @@
-const gameDiv = document.getElementById("game");
+"use strict"
 
+const gameDiv = document.getElementById("game");
 
 function gravity(squaresCopy, i, incrementAmount, rowOrCol, rowOrColPosition) {
     if(squaresCopy[i][rowOrCol] === rowOrColPosition) {
@@ -20,9 +21,13 @@ function gravity(squaresCopy, i, incrementAmount, rowOrCol, rowOrColPosition) {
     return squaresCopy
 }
 
+function arrayDeepCopy(array) {
+    return array.map(x => {return [...x]})
+}
+
 function gravityDown() {
     resetHasMerged()
-    squaresCopy = JSON.parse(JSON.stringify(squares))
+    let squaresCopy = arrayDeepCopy(squares)
     for(let i = 11; i >= 0; i--) {
         squaresCopy = gravity(squaresCopy, i, 4, 1, 3)
     }
@@ -31,7 +36,7 @@ function gravityDown() {
 
 function gravityUp() {
     resetHasMerged()
-    squaresCopy = JSON.parse(JSON.stringify(squares))
+    let squaresCopy = arrayDeepCopy(squares)
     for(let i = 4; i < 16; i++) {
         squaresCopy = gravity(squaresCopy, i, -4, 1, 0)
     }
@@ -40,7 +45,7 @@ function gravityUp() {
 
 function gravityLeft() { 
     resetHasMerged()
-    squaresCopy = JSON.parse(JSON.stringify(squares))
+    let squaresCopy = arrayDeepCopy(squares)
     for(let i = 1; i < 16; i++) {
         squaresCopy = gravity(squaresCopy, i, -1, 0, 0)
     }
@@ -49,30 +54,13 @@ function gravityLeft() {
 
 function gravityRight() {
     resetHasMerged()
-    squaresCopy = JSON.parse(JSON.stringify(squares))
+    let squaresCopy = arrayDeepCopy(squares)
     for(let i = 14; i >= 0; i--) {
         squaresCopy = gravity(squaresCopy, i, 1, 0, 3)
     }
     return squaresCopy
 }
 
-
-function gameOver() {
-    throw new Error("Game end")
-}
-
-function isGameOver() {
-    const nextMoves = [gravityDown(), gravityRight(), gravityUp(), gravityLeft()]
-    for(let i = 0; i < nextMoves.length; i++) {
-        if (nextMoves[i].toString() != squares.toString()) {
-            break
-        }
-        if (i == nextMoves.length-1) {
-            return true
-        }
-    }
-    return false
-}
 
 function generateSquareValue() {
     if (Math.random() >= 0.9)
@@ -124,5 +112,5 @@ function updateSquares() {
 
 function resetHasMerged() {
     for(let i = 0; i < squares.length; i++)
-        squares[i][3] = null
+        squares[i][3] = false
 }
