@@ -81,19 +81,14 @@ function checkForEmptySquares() {
 
 function generateSquare() {
     const newSquare = [Math.round(Math.random()*3), Math.round(Math.random()*3), 2]
-    let i = 0;
-
-    for(let r = 0; r < 4; r++) {
-        for(let c = 0; c < 4; c++) {
-            if (squares[i][0] == newSquare[0] && squares[i][1] == newSquare[1]) {
-                if(squares[i][2] == null) {
-                    squares[i][2] = generateSquareValue()
-                    return newSquare
-                }
-                checkForEmptySquares()
-                return generateSquare()
+    for(let i = 0; i < 16; i++) {
+        if (squares[i][0] == newSquare[0] && squares[i][1] == newSquare[1]) {
+            if(squares[i][2] == null) {
+                squares[i][2] = generateSquareValue()
+                return newSquare
             }
-            i++
+            checkForEmptySquares()
+            return generateSquare()
         }
     }
 }
