@@ -6,25 +6,25 @@ window.addEventListener(
         game.isGameOver()
         switch (event.key) {
             case "ArrowDown":
-                if (game.squares.toString() != game.gravityDown().toString()) {
+                if (JSON.stringify(game.squares) != JSON.stringify(game.gravityDown())) {
                     game.squares = game.gravityDown()
                     game.newTurn()
                 }
                 break;
             case "ArrowUp":
-                if (game.squares.toString() != game.gravityUp().toString()) {
+                if (JSON.stringify(game.squares) != JSON.stringify(game.gravityUp())) {
                     game.squares = game.gravityUp()
                     game.newTurn()
                 }
                 break;
             case "ArrowLeft":
-                if (game.squares.toString() != game.gravityLeft().toString()) {
+                if (JSON.stringify(game.squares) != JSON.stringify(game.gravityLeft())) {
                     game.squares = game.gravityLeft()
                     game.newTurn()
                 }
                 break;
             case "ArrowRight":
-                if (game.squares.toString() != game.gravityRight().toString()) {
+                if (JSON.stringify(game.squares) != JSON.stringify(game.gravityRight())) {
                     game.squares = game.gravityRight()
                     game.newTurn()
                 }

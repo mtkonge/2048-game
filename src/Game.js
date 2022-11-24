@@ -1,19 +1,12 @@
 "use strict"
 
-class Square {
-    constructor(row, col, value, hasMerged = false) {
-        this.row = row
-        this.col = col
-        this.value = value
-        this.hasMerged = hasMerged
-    }
-}
+const gameDiv = document.getElementById("game");
+const newGameBtn = document.getElementById("reset-game")
 
 class Game {
     constructor() {
         this.squares = []
     }
-    
 
     checkForEmptySquares() {
         for(let i = 0; i < this.squares.length; i++) {
@@ -108,7 +101,7 @@ class Game {
         for(let i = 0; i < this.squares.length; i++)
             this.squares[i].hasMerged = false
     }
-    
+
     gravityDown() {
         this.resetHasMerged()
         let squaresCopy = arrayDeepCopy(this.squares)
@@ -148,7 +141,7 @@ class Game {
     isGameOver() {
         const nextMoves = [this.gravityDown(), this.gravityRight(), this.gravityUp(), this.gravityLeft()]
         for(let i = 0; i < nextMoves.length; i++) {
-            if (nextMoves[i].toString() != this.squares.toString()) {
+            if (JSON.stringify(nextMoves[i]) != JSON.stringify(this.squares)) {
                 break
             }
             if (i == nextMoves.length-1) {
@@ -159,10 +152,7 @@ class Game {
 
 }
 const game = new Game()
-
 game.resetGame()
-
-const newGameBtn = document.getElementById("reset-game")
 
 newGameBtn.addEventListener("click", () => {game.resetGame()})
 
